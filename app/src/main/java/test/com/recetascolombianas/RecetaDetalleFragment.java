@@ -26,6 +26,11 @@ public class RecetaDetalleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        if(savedInstanceState != null){
+            recetaId = savedInstanceState.getLong("recetaId");
+        }
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_receta_detalle, container, false);
     }
@@ -42,6 +47,12 @@ public class RecetaDetalleFragment extends Fragment {
             description.setText(receta.getDescription());
         }
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        savedInstanceState.putLong("recetaId", recetaId);
+    }
 }
+
 
 
